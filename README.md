@@ -1,2 +1,2 @@
 # laser-chicken
-Play Lazer Chicken!
+Play Laser Chicken!
