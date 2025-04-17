@@ -1,6 +1,5 @@
 package chicken_game;
 
-import utilitiescs.Utilities;
 
 public class Lucky_Chicken extends Defensive_Chicken {
 
@@ -32,7 +31,7 @@ public class Lucky_Chicken extends Defensive_Chicken {
 		super.hit(damage);
 		if(super.is_alive()) {
 			if(super.successful_action(chance_to_regen)) {
-				int regen_amount = Utilities.calc_random(min_regen, max_regen) * -1;
+				int regen_amount = My_Utilities.calc_random(min_regen, max_regen) * -1;
 				super.hit(regen_amount);
 				System.out.println(super.get_name() + " regenerates for " + regen_amount + "points");
 			}

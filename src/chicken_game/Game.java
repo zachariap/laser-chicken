@@ -2,7 +2,6 @@ package chicken_game;
 
 import java.util.Scanner;
 
-import utilitiescs.Utilities;
 
 class Game {
 	private Scanner scan;
@@ -98,12 +97,12 @@ class Game {
 	private void human_change_direction() {
 		System.out.println("What direction do you want to change to? \n1 = north \n2 = east"
 				+ "\n3 = south \n4 = west");
-		int choice = Utilities.get_user_int(scan, 1, 4);
+		int choice = My_Utilities.get_user_int(scan, 1, 4);
 		cc1.change_direction(choice);
 		System.out.println(cc1.get_name() + " is facing " + cc1.facing());
 	}
 	private void computer_change_direction() {
-		int choice = Utilities.calc_random(1, 4);
+		int choice = My_Utilities.calc_random(1, 4);
 		cc2.change_direction(choice);
 		System.out.println(cc2.get_name() + " changed direction and is facing " + cc2.facing());
 	}
@@ -145,7 +144,7 @@ class Game {
 	private void take_human_turn() {
 		System.out.println(cc1.get_name() + " it is your turn.");
 		System.out.println("Do you want to \nchange direction(1)\nmove(2)\ncombat(3)");
-		int choice = Utilities.get_user_int(scan, 1, 3);
+		int choice = My_Utilities.get_user_int(scan, 1, 3);
 		switch(choice) {
 		case 1:
 			human_change_direction();
@@ -161,10 +160,9 @@ class Game {
 	private void take_computer_turn() {
 		System.out.println(cc2.get_name() + " it is your turn.");
 		System.out.println("Do you want to \nchange direction(1)\nmove(2)\ncombat(3)");
-		int choice = Utilities.calc_random(1, 3);
+		int choice = My_Utilities.calc_random(1, 3);
 		switch(choice) {
 		case 1:
-			//System.out.println(cc2.get_name() + " changed direction.");
 			computer_change_direction();
 			break;
 		case 2:
@@ -188,7 +186,7 @@ class Game {
 		initialize_human_character(stats);
 		initialize_computer_character(stats);
 	}
-	//chicken menu
+
 	private Chicken_Character character_menu(Chicken_Character cc, String name, int[] stats, int choice){
 		switch(choice) {
 		case 1:
@@ -209,7 +207,7 @@ class Game {
 		System.out.println("Do you want to be a blast chicken(1) or a lucky chicken(2)?");
 		System.out.println("\nBlast chicken has a chance of propelling double the distance, as well as doubling damage every 3 turns.");
 		System.out.println("\nLucky chicken has a chance of regenerating health, as well as blocking damage.\n");
-		int choice = Utilities.get_user_int(scan, 1, 2);
+		int choice = My_Utilities.get_user_int(scan, 1, 2);
 		cc1 = character_menu(cc1,name,stats, choice);		
 		this.board.mark_board(cc1.get_location()[0], cc1.get_location()[1], cc1.get_symbol());
 	}
@@ -218,7 +216,7 @@ class Game {
 		stats[1] = this.columns - 1 ; 
 		stats[2] = this.rows - 1;
 		stats[6] = 4;
-		int choice = Utilities.calc_random(1, 2);
+		int choice = My_Utilities.calc_random(1, 2);
 		cc2 = character_menu(cc2, name, stats, choice);
 		this.board.mark_board(cc2.get_location()[0], cc2.get_location()[1], cc2.get_symbol());
 	}

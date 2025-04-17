@@ -1,7 +1,7 @@
 package chicken_game;
 import java.util.Random;
 
-import utilitiescs.Utilities;
+
 
 public class Chicken_Character implements Icg {
 	private String name;
@@ -119,7 +119,7 @@ public class Chicken_Character implements Icg {
 		fire_solution[1] = new_position[1];
 		fire_solution[2] = 0;
 		if(this.successful_action(this.base_chance)) {
-			fire_solution[2] = Utilities.calc_random(damage_min, damage_min);
+			fire_solution[2] = My_Utilities.calc_random(damage_min, damage_min);
 		}else {
 			System.out.println("You missed");
 		}
